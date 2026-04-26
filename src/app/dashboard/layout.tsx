@@ -5,6 +5,8 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
 import { LayoutDashboard, Library, TrendingUp, User, LogOut, Trophy } from 'lucide-react';
 import { auth } from '@/config/firebaseConfig';
+import Image from 'next/image';
+import baLogo from '../../../public/images/ba_logo.png';
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
@@ -32,8 +34,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             <div className="w-64 bg-white border-r border-slate-200 flex-col hidden md:flex">
                 <div className="p-6">
                     <div className="flex items-center gap-3 mb-8">
-                        <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center overflow-hidden">
-                            <img src="/images/ba_logo.png" alt="Logo" className="w-full h-full object-contain p-1" />
+                        <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center overflow-hidden relative">
+                            <Image src={baLogo} alt="Logo" className="object-contain p-1" fill sizes="40px" />
                         </div>
                         <span className="font-bold text-xl text-slate-900">BoardAbhyarthi</span>
                     </div>

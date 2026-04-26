@@ -6,6 +6,8 @@ import { useAuth } from '@/context/AuthContext';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth, db } from '@/config/firebaseConfig';
 import { doc, getDoc } from 'firebase/firestore';
+import Image from 'next/image';
+import baLogo from '../../../public/images/ba_logo.png';
 
 export default function LoginPage() {
     const router = useRouter();
@@ -53,8 +55,8 @@ export default function LoginPage() {
         <main className="min-h-screen flex items-center justify-center bg-slate-50 p-4">
             <div className="w-full max-w-md bg-white rounded-3xl shadow-xl p-8 border border-slate-100">
                 <div className="text-center mb-8">
-                    <div className="w-20 h-20 bg-blue-600 rounded-2xl mx-auto mb-4 flex items-center justify-center shadow-lg shadow-blue-600/20 overflow-hidden">
-                        <img src="/images/ba_logo.png" alt="Logo" className="w-full h-full object-contain p-2" />
+                    <div className="w-20 h-20 bg-blue-600 rounded-2xl mx-auto mb-4 flex items-center justify-center shadow-lg shadow-blue-600/20 overflow-hidden relative">
+                        <Image src={baLogo} alt="Logo" className="object-contain p-2" fill sizes="80px" />
                     </div>
                     <h1 className="text-3xl font-bold text-slate-900 tracking-tight">Welcome Back</h1>
                     <p className="text-slate-500 mt-2 font-medium">Log in to BoardAbhyarthi</p>

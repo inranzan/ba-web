@@ -1,6 +1,8 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import baLogo from '../../public/images/ba_logo.png';
 import { BookOpen, Trophy, BrainCircuit, Activity, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export default function LandingPage() {
@@ -10,8 +12,8 @@ export default function LandingPage() {
             <nav className="w-full bg-white/80 backdrop-blur-md border-b border-slate-200 fixed top-0 z-50">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-600/20 overflow-hidden">
-                            <img src="/images/ba_logo.png" alt="Logo" className="w-full h-full object-contain p-1" />
+                        <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-600/20 overflow-hidden relative">
+                            <Image src={baLogo} alt="Logo" className="object-contain p-1" fill sizes="40px" />
                         </div>
                         <span className="text-xl font-black text-slate-900 tracking-tight">BoardAbhyarthi</span>
                     </div>
