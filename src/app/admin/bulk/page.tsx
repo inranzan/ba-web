@@ -6,7 +6,6 @@ import { db } from '@/config/firebaseConfig';
 import { useAuth } from '@/context/AuthContext';
 import { FileText, ArrowLeft, Upload, Loader2, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
-import Papa from 'papaparse';
 
 const STATIC_SUBJECTS = [
     { id: "mathematics", name: "Mathematics" },
@@ -41,15 +40,17 @@ export default function AdminBulkUpload() {
         if (e.target.files && e.target.files.length > 0) {
             const file = e.target.files[0];
             setFileObj(file);
-            Papa.parse(file, {
-                header: true,
-                skipEmptyLines: true,
-                complete: function (results) {
-                    setCsvData(results.data);
-                },
-                error: function (error) {
-                    alert("Error parsing CSV: " + error.message);
-                }
+            import('papaparse').then((Papa) => {
+                Papa.default.parse(file, {
+                    header: true,
+                    skipEmptyLines: true,
+                    complete: function (results) {
+                        setCsvData(results.data);
+                    },
+                    error: function (error) {
+                        alert("Error parsing CSV: " + error.message);
+                    }
+                });
             });
         }
     };

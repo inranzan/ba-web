@@ -1,9 +1,9 @@
 "use client";
-import React from 'react';
+import React, { Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Trophy, ArrowRight, Activity, Zap } from 'lucide-react';
 
-export default function TestResult() {
+function TestResultContent() {
     const router = useRouter();
     const searchParams = useSearchParams();
 
@@ -52,5 +52,13 @@ export default function TestResult() {
                 </button>
             </div>
         </div>
+    );
+}
+
+export default function TestResult() {
+    return (
+        <Suspense fallback={<div className="min-h-screen bg-slate-50 flex items-center justify-center p-4"><div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div></div>}>
+            <TestResultContent />
+        </Suspense>
     );
 }
